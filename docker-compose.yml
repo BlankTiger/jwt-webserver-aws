@@ -1,0 +1,24 @@
+services:
+  app:
+    image: 634593420320.dkr.ecr.eu-central-1.amazonaws.com/app
+    depends_on:
+      - database
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: postgres
+      AWS_REGION: eu-central-1
+    links:
+      - database
+    ports:
+      - "80:80"
+
+  database:
+    image: 634593420320.dkr.ecr.eu-central-1.amazonaws.com/db
+    container_name: database
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: postgres
+    ports:
+      - "5432:5432"
+
+version: "3"

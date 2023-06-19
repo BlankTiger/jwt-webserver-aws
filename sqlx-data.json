@@ -1,0 +1,464 @@
+{
+  "db": "PostgreSQL",
+  "0014d9e3ec754af997bafdf89c6a54a39a75c50ee99b1197397c7957382a8fe3": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "name",
+          "ordinal": 1,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "passwd_hash",
+          "ordinal": 2,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "role: Roles",
+          "ordinal": 3,
+          "type_info": {
+            "Custom": {
+              "kind": {
+                "Enum": [
+                  "admin",
+                  "customer",
+                  "guest"
+                ]
+              },
+              "name": "user_roles"
+            }
+          }
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      }
+    },
+    "query": "SELECT id, name, passwd_hash, role as \"role: Roles\" FROM users WHERE name = $1"
+  },
+  "05eb25bfa9a16a2a2a5a29f4507ad34fbd8ea9bff07823e89b0b1ddb0adc9bd6": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "name",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "price",
+          "ordinal": 2,
+          "type_info": "Int4"
+        },
+        {
+          "name": "available",
+          "ordinal": 3,
+          "type_info": "Bool"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "select * from products"
+  },
+  "0a9cffada606e7d5257c791bda7611f892a4a71f84dc5c875b6d62edc54bf6b7": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "customer_id",
+          "ordinal": 1,
+          "type_info": "Int4"
+        },
+        {
+          "name": "status",
+          "ordinal": 2,
+          "type_info": "Text"
+        },
+        {
+          "name": "created_at",
+          "ordinal": 3,
+          "type_info": "Timestamp"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "select * from orders where customer_id = $1"
+  },
+  "1f129a9ea53b631d5ddc0cdf4ced5412d83c744c8da9bf0212b414dfb15650de": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "name",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "address",
+          "ordinal": 2,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "select * from customers"
+  },
+  "24d8110374744422b39b38040462b82b94556a0c2470c824d2c6f366ddebd689": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "delete from products_in_orders"
+  },
+  "2d1ac3b515acb0283e9daa1b5be23f7f16fbd472776c43f4206da3797ecb08c2": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "delete from orders"
+  },
+  "7bb8b80baaddafaa0033f030c23db524feb8d8c87aaca53570054e7bf981b139": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Text",
+          "Text",
+          "Int4"
+        ]
+      }
+    },
+    "query": "update customers set name = $1, address = $2 where id = $3"
+  },
+  "7cf65eea62b81515347ce764c3a69c72a9d2e741552a9a4c1e3c728e6e160270": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "customer_id",
+          "ordinal": 1,
+          "type_info": "Int4"
+        },
+        {
+          "name": "status",
+          "ordinal": 2,
+          "type_info": "Text"
+        },
+        {
+          "name": "created_at",
+          "ordinal": 3,
+          "type_info": "Timestamp"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "select * from orders where id = $1"
+  },
+  "81ac79b46cc8b4e447216fc4609d351a260b9d1c6bdb7121dbce10c4787c7d06": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "name",
+          "ordinal": 1,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "passwd_hash",
+          "ordinal": 2,
+          "type_info": "Varchar"
+        },
+        {
+          "name": "role: Roles",
+          "ordinal": 3,
+          "type_info": {
+            "Custom": {
+              "kind": {
+                "Enum": [
+                  "admin",
+                  "customer",
+                  "guest"
+                ]
+              },
+              "name": "user_roles"
+            }
+          }
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Varchar",
+          "Varchar",
+          {
+            "Custom": {
+              "kind": {
+                "Enum": [
+                  "admin",
+                  "customer",
+                  "guest"
+                ]
+              },
+              "name": "user_roles"
+            }
+          }
+        ]
+      }
+    },
+    "query": "INSERT INTO users (name, passwd_hash, role) VALUES ($1, $2, $3) RETURNING id, name, passwd_hash, role as \"role: Roles\""
+  },
+  "a0314e2aa0ca1a6e9fc0a9e318db603e2c26e7ef3a532f8ca908f6320111359d": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "delete from products"
+  },
+  "a468eaffbdd7f4f44cfb3a3716ab79b4c8cc1b0bb66a3daa973fa89e08cb2315": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "name",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "price",
+          "ordinal": 2,
+          "type_info": "Int4"
+        },
+        {
+          "name": "available",
+          "ordinal": 3,
+          "type_info": "Bool"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "select * from products where id = $1"
+  },
+  "ac7db8ca24895890954dbf8aaf256a229462ef9cf72912e2595bbea1fac1c611": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int4",
+          "Text",
+          "Timestamp",
+          "Int4"
+        ]
+      }
+    },
+    "query": "update orders set customer_id = $1, status = $2, created_at = $3 where id = $4"
+  },
+  "d4188efad1786a3375b16194b2d425a88b5aecfa71cc81c5b2ea68bfb17b79f9": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "delete from products_in_orders where order_id = $1"
+  },
+  "dcf5292f9528d73bf796f665e1f798462bcf047573a83186e8a31a1f6c170184": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Text",
+          "Int4",
+          "Bool",
+          "Int4"
+        ]
+      }
+    },
+    "query": "update products set name = $1, price = $2, available = $3 where id = $4"
+  },
+  "f480691828df3f8c68e3d0843b12b266534bc3636f11542c092f3ea8a331694d": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "delete from customers"
+  },
+  "f82da0fcef15174d084e0b226826167f461e705325acb367dc9927188503694d": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "delete from users"
+  },
+  "fb55bef248d66ccb132dbb27bdf2c79bf038e2b31492f4d9745b1cd9b0fd3e2a": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "name",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "address",
+          "ordinal": 2,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "select * from customers where id = $1"
+  },
+  "fcb226cb3ff54dde937c232a9135e0596762feae6d128d4ba20d08332aa867c5": {
+    "describe": {
+      "columns": [
+        {
+          "name": "order_id",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "product_id",
+          "ordinal": 1,
+          "type_info": "Int4"
+        },
+        {
+          "name": "quantity",
+          "ordinal": 2,
+          "type_info": "Int4"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "select * from products_in_orders where order_id = $1"
+  }
+}
